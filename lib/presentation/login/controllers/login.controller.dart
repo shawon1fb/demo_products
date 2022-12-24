@@ -1,23 +1,29 @@
 import 'package:get/get.dart';
 
+import '../../../domain/repository/usecase/auth.reposirory.interface.dart';
+import '../../../infrastructure/dal/services/auth/dto/login.dto.dart';
+
 class LoginController extends GetxController {
-  //TODO: Implement LoginController
+  final IAuthRepository _authRepository;
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
+  LoginController({required IAuthRepository authRepository})
+      : _authRepository = authRepository;
+
+  Future<void> loginMethod({
+    required String username,
+    required String password,
+  }) async {
+    try {
+      LoginDto dto = LoginDto(
+        username: username,
+        password: password,
+      );
+      String token = await _authRepository.signIn(dto);
+
+      /// save the token
+
+    } catch (e) {
+      rethrow;
+    }
   }
-
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {
-    super.onClose();
-  }
-
-  void increment() => count.value++;
 }

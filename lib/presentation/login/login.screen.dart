@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../domain/core/core/exceptions/forbidden.exception.dart';
+import '../../domain/core/core/exceptions/unauthorized.exception.dart';
 import '../../infrastructure/navigation/routes.dart';
 import '../../values/values.dart';
 import '../shared/buttons/animated_button_widget.dart';
@@ -171,17 +172,17 @@ class LoginScreen extends GetView<LoginController> {
                 onTap: () async {
                   try {
                     if (_formKey.currentState!.validate()) {
-                      // await controller.loginMethod(
-                      //   address: addressController.text.trim(),
-                      //   password: passwordController.text,
-                      // );
+                      await controller.loginMethod(
+                        username: addressController.text.trim(),
+                        password: passwordController.text,
+                      );
 
-                      ScaffoldMessenger.of(context).showSnackBar(
+                      ScaffoldMessenger.of(Get.context!).showSnackBar(
                         const SnackBar(content: Text('Login Success')),
                       );
                       Get.offAllNamed(Routes.HOME);
                     }
-                  } on ForbiddenException catch (e) {
+                  } on UnAuthorizedException catch (e) {
                     // Get.snackbar('Invalid', e.message);
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(content: Text(e.message)),

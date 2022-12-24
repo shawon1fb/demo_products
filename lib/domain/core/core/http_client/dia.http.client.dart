@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
 import 'package:dio_http_formatter/dio_http_formatter.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -22,6 +23,10 @@ class AppHttpClient extends GetLifeCycle {
   @override
   void onInit() {
     httpClient.transformer = FlutterTransformer();
+    if (ConfigEnvironments.getEnvironments().url != Environments.PRODUCTION) {
+      httpClient.interceptors.add(HttpFormatter());
+    }
+
     initCache();
     super.onInit();
   }
@@ -35,8 +40,12 @@ class AppHttpClient extends GetLifeCycle {
       httpClient.interceptors
           .add(DioCacheInterceptor(options: CacheOptions(store: store)));
     } catch (e, t) {
-      debugPrint(e.toString());
-      debugPrint(t.toString());
+      if (ConfigEnvironments.getEnvironments().url != Environments.PRODUCTION) {
+        if (kDebugMode) {
+          print(e.toString());
+          print(t.toString());
+        }
+      }
     }
   }
 }

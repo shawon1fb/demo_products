@@ -28,21 +28,23 @@ class Main extends StatelessWidget {
       designSize: const Size(428, 926),
       builder: (context, widget) => Directionality(
         textDirection: TextDirection.ltr,
-        child: GetMaterialApp(
-          textDirection: TextDirection.ltr,
-          theme: LoginDesign5Theme.lightThemeData,
-          fallbackLocale: const Locale('en', 'US'),
-          debugShowCheckedModeBanner: false,
-          initialRoute: initialRoute,
-          getPages: Nav.routes,
-          enableLog: true,
-          defaultTransition: Transition.fadeIn,
-          initialBinding: InitialBindings(),
-          builder: (context, Widget? widget) {
-            // ScreenUtil.setContext(context);
+        child: EnvironmentsBadge(
+          child: GetMaterialApp(
+            textDirection: TextDirection.ltr,
+            theme: LoginDesign5Theme.lightThemeData,
+            fallbackLocale: const Locale('en', 'US'),
+            debugShowCheckedModeBanner: false,
+            initialRoute: initialRoute,
+            getPages: Nav.routes,
+            enableLog: true,
+            defaultTransition: Transition.fadeIn,
+            initialBinding: InitialBindings(),
+            builder: (context, Widget? widget) {
+              // ScreenUtil.setContext(context);
 
-            return widget ?? const SizedBox();
-          },
+              return widget ?? const SizedBox();
+            },
+          ),
         ),
       ),
     );
@@ -53,7 +55,7 @@ class InitialBindings extends Bindings {
   @override
   void dependencies() {
     Get.put<InitialController>(InitialController());
-    LoginControllerBinding().dependencies();
+   // LoginControllerBinding().dependencies();
     // Get.put<DomainController>(
     //   DomainController(domainRepository: DomainRepositoryBindings().repository),
     // );
