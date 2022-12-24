@@ -18,12 +18,12 @@ import 'controllers/login.controller.dart';
 class LoginScreen extends GetView<LoginController> {
   LoginScreen({Key? key}) : super(key: key);
 
-  final FocusNode addressNode = FocusNode();
+  final FocusNode usernameNode = FocusNode();
   final FocusNode passwordNode = FocusNode();
-  final TextEditingController addressController =
-      TextEditingController(text: 'shawon@arxxwalls.com');
+  final TextEditingController usernameController =
+      TextEditingController(text: 'mor_2314');
   final TextEditingController passwordController =
-      TextEditingController(text: '123456');
+      TextEditingController(text: '83ra5^_');
 
   final _formKey = GlobalKey<FormState>();
 
@@ -99,10 +99,10 @@ class LoginScreen extends GetView<LoginController> {
         children: <Widget>[
           CustomTextFormField(
             hasTitle: true,
-            focusNode: addressNode,
+            focusNode: usernameNode,
             nextNode: passwordNode,
-            controller: addressController,
-            title: StringConst.ADDRESS,
+            controller: usernameController,
+            title: StringConst.USER_NAME,
             titleStyle: theme.textTheme.subtitle1?.copyWith(
               color: AppColors.deepDarkGreen,
               fontSize: Sizes.TEXT_SIZE_14,
@@ -173,7 +173,7 @@ class LoginScreen extends GetView<LoginController> {
                   try {
                     if (_formKey.currentState!.validate()) {
                       await controller.loginMethod(
-                        username: addressController.text.trim(),
+                        username: usernameController.text.trim(),
                         password: passwordController.text,
                       );
 
