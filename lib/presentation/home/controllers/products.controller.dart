@@ -5,8 +5,7 @@ import '../../../domain/core/data_model/product.data.model.dart';
 import '../../../domain/core/pagination/pagination_model.dart';
 import '../../../domain/repository/usecase/product.repository.interface.dart';
 
-class ProductsController extends GetxController
-    with StateMixin<ProductDataModel> {
+class ProductsController extends GetxController {
   final IProductRepository _productRepository;
 
   ProductsController({required IProductRepository productRepository})
@@ -24,8 +23,11 @@ class ProductsController extends GetxController
     super.onClose();
   }
 
+  bool isLoading = false;
+
   Future<void> getAllProducts() async {
     try {
+      isLoading = true;
       PaginationModel<ProductDataModel> res =
           await _productRepository.getAllProduct();
       _allProducts.addAll(res.list);
@@ -34,6 +36,9 @@ class ProductsController extends GetxController
         print(e);
         print(t);
       }
+    } finally {
+      isLoading = false;
+      update();
     }
   }
 
