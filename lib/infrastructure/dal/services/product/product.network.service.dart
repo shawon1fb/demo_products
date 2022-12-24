@@ -29,7 +29,7 @@ class ProductNetworkService extends IProductService {
           return AllProductsResponse.fromJson(
             value is String
                 ? json.decode(value)
-                : value as Map<String, dynamic>,
+                : value as List,
           );
         },
       );

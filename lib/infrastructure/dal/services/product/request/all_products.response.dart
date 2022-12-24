@@ -1,14 +1,29 @@
 class AllProductsResponse {
+  List<ProductsResponseData> products;
+  String? message;
+
+  AllProductsResponse({this.products = const <ProductsResponseData>[]});
+
+  factory AllProductsResponse.fromJson(List json) {
+    List<ProductsResponseData> products = [];
+    for (var v in json) {
+      products.add(ProductsResponseData.fromJson(v));
+    }
+    return AllProductsResponse(products: products);
+  }
+}
+
+class ProductsResponseData {
   int? id;
   String? title;
-  String? message;
+
   double? price;
   String? description;
   String? category;
   String? image;
   Rating? rating;
 
-  AllProductsResponse({
+  ProductsResponseData({
     this.id,
     this.title,
     this.price,
@@ -18,7 +33,7 @@ class AllProductsResponse {
     this.rating,
   });
 
-  AllProductsResponse.fromJson(Map<String, dynamic> json) {
+  ProductsResponseData.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     title = json['title'];
     price = json['price'];

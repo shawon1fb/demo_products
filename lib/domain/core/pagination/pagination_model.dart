@@ -1,11 +1,25 @@
 class PaginationModel<T> {
-  int nextPage;
+  int page;
+  int totalPages;
   List<T> list;
-  int maxPage;
+
+  int get nextPage {
+    if (page == 0) {
+      return 1;
+    } else if (page >= totalPages) {
+      return totalPages;
+    } else if (page < totalPages) {
+      return page + 1;
+    } else if (list.isEmpty) {
+      return page;
+    }
+
+    return page;
+  }
 
   PaginationModel({
-    required this.nextPage,
+    required this.page,
+    required this.totalPages,
     required this.list,
-    required this.maxPage,
   });
 }
