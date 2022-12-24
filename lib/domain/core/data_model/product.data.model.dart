@@ -4,7 +4,7 @@ class ProductDataModel {
   int id;
   String title;
 
-  double price;
+  num price;
   String description;
   String category;
   String image;
