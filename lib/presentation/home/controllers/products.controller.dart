@@ -5,7 +5,8 @@ import '../../../domain/core/data_model/product.data.model.dart';
 import '../../../domain/core/pagination/pagination_model.dart';
 import '../../../domain/repository/usecase/product.repository.interface.dart';
 
-class ProductsController extends GetxController {
+class ProductsController extends GetxController
+    with StateMixin<ProductDataModel> {
   final IProductRepository _productRepository;
 
   ProductsController({required IProductRepository productRepository})
@@ -13,7 +14,7 @@ class ProductsController extends GetxController {
 
   @override
   void onInit() {
-    // TODO: implement onInit
+    getAllProducts();
     super.onInit();
   }
 
