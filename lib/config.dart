@@ -8,10 +8,22 @@ class Environments {
 class ConfigEnvironments {
   static const String _currentEnvironments = Environments.LOCAL;
   static final List<AppConfig> _availableEnvironments = [
-    AppConfig(env: Environments.LOCAL, url: 'http://localhost:8080/api/'),
-    AppConfig(env: Environments.DEV, url: 'http://localhost:8080/api/'),
-    AppConfig(env: Environments.QAS, url: 'http://localhost:8080/api/'),
-    AppConfig(env: Environments.PRODUCTION, url: 'http://localhost:8080/api/'),
+    AppConfig(
+      env: Environments.LOCAL,
+      url: 'http://localhost:8080/api/',
+    ),
+    AppConfig(
+      env: Environments.DEV,
+      url: 'http://localhost:8080/api/',
+    ),
+    AppConfig(
+      env: Environments.QAS,
+      url: 'http://localhost:8080/api/',
+    ),
+    AppConfig(
+      env: Environments.PRODUCTION,
+      url: 'http://localhost:8080/api/',
+    ),
   ];
 
   static AppConfig getEnvironments() {
