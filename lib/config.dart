@@ -14,15 +14,15 @@ class ConfigEnvironments {
     ),
     AppConfig(
       env: Environments.DEV,
-      url: 'http://localhost:8080/api/',
+      url: 'https://fakestoreapi.com/',
     ),
     AppConfig(
       env: Environments.QAS,
-      url: 'http://localhost:8080/api/',
+      url: 'https://fakestoreapi.com/',
     ),
     AppConfig(
       env: Environments.PRODUCTION,
-      url: 'http://localhost:8080/api/',
+      url: 'https://fakestoreapi.com/',
     ),
   ];
 
