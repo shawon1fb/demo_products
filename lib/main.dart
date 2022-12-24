@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
-import 'infrastructure/navigation/bindings/controllers/login.controller.binding.dart';
 import 'infrastructure/navigation/navigation.dart';
 import 'infrastructure/navigation/routes.dart';
 import 'infrastructure/theme/thems.dart';
@@ -55,7 +54,7 @@ class InitialBindings extends Bindings {
   @override
   void dependencies() {
     Get.put<InitialController>(InitialController());
-   // LoginControllerBinding().dependencies();
+    // LoginControllerBinding().dependencies();
     // Get.put<DomainController>(
     //   DomainController(domainRepository: DomainRepositoryBindings().repository),
     // );
