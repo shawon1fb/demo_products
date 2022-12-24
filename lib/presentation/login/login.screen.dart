@@ -23,7 +23,7 @@ class LoginScreen extends GetView<LoginController> {
   final TextEditingController usernameController =
       TextEditingController(text: 'mor_2314');
   final TextEditingController passwordController =
-      TextEditingController(text: '83ra5^_');
+      TextEditingController(text: '83r5^_');
 
   final _formKey = GlobalKey<FormState>();
 
