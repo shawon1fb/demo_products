@@ -33,7 +33,7 @@ class Initializer {
 
   static Future<void> _initGetConnect() async {
     final connect = GetConnect();
-    final url = ConfigEnvironments.getEnvironments()['url'];
+    final url = ConfigEnvironments.getEnvironments().url;
     connect.baseUrl = url;
     connect.timeout = const Duration(seconds: 300);
     connect.httpClient.maxAuthRetries = 0;

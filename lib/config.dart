@@ -7,28 +7,26 @@ class Environments {
 
 class ConfigEnvironments {
   static const String _currentEnvironments = Environments.LOCAL;
-  static final List<Map<String, String>> _availableEnvironments = [
-    {
-      'env': Environments.LOCAL,
-      'url': 'http://localhost:8080/api/',
-    },
-    {
-      'env': Environments.DEV,
-      'url': '',
-    },
-    {
-      'env': Environments.QAS,
-      'url': '',
-    },
-    {
-      'env': Environments.PRODUCTION,
-      'url': '',
-    },
+  static final List<AppConfig> _availableEnvironments = [
+    AppConfig(env: Environments.LOCAL, url: 'http://localhost:8080/api/'),
+    AppConfig(env: Environments.DEV, url: 'http://localhost:8080/api/'),
+    AppConfig(env: Environments.QAS, url: 'http://localhost:8080/api/'),
+    AppConfig(env: Environments.PRODUCTION, url: 'http://localhost:8080/api/'),
   ];
 
-  static Map<String, String> getEnvironments() {
+  static AppConfig getEnvironments() {
     return _availableEnvironments.firstWhere(
-      (d) => d['env'] == _currentEnvironments,
+      (d) => d.env == _currentEnvironments,
     );
   }
+}
+
+class AppConfig {
+  String env;
+  String url;
+
+  AppConfig({
+    required this.env,
+    required this.url,
+  });
 }
