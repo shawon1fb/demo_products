@@ -14,7 +14,7 @@ void main() {
   // });
 
   test('login api  success test', () async {
-    Initializer.testInit();
+    await Initializer.testInit();
 
     IAuthRepository repository = AuthRepositoryBindings().repository;
 
@@ -27,7 +27,7 @@ void main() {
   });
 
   test('login api failed test', () async {
-    Initializer.testInit();
+    await Initializer.testInit();
 
     try {
       IAuthRepository repository = AuthRepositoryBindings().repository;
@@ -40,7 +40,12 @@ void main() {
       expect(token.isNotEmpty, true);
     } on UnAuthorizedException catch (e) {
       expect(true, true);
-    } catch (e) {
+    }
+    // on FormatException catch (e) {
+    //   expect(true, true);
+    // }
+    catch (e) {
+      print(e.runtimeType);
       expect(false, true);
     }
   });

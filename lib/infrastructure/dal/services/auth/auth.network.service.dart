@@ -28,10 +28,20 @@ class AuthNetworkService extends IAuthService {
           // 'user-Agent': 'PostmanRuntime/7.29.2',
         },
         decoder: (value) {
-           print(value);
-          return TokenResponse.fromJson(
-            value is String ? ({'message': value}) : value as Map<String, dynamic>,
-          );
+          // print(value);
+          try {
+            return TokenResponse.fromJson(
+              value is String
+                  ? json.decode(value)
+                  : value as Map<String, dynamic>,
+            );
+          } on FormatException catch (e) {
+            return TokenResponse.fromJson(
+              <String, dynamic>{
+                'message': value,
+              },
+            );
+          }
         },
       );
       if (response.success) {
