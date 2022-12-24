@@ -3,6 +3,7 @@ import 'dart:convert';
 import '../../../../domain/core/core/abstractions/http_connect.interface.dart';
 import '../../../../domain/core/core/exceptions/default.exception.dart';
 import '../../../../domain/core/core/exceptions/forbidden.exception.dart';
+import '../../../../domain/core/core/exceptions/unauthorized.exception.dart';
 import '../../../../domain/core/core/exceptions/unprocessable.entity.exception.dart';
 import '../usecase/auth.service.interface.dart';
 import 'dto/login.dto.dart';
@@ -37,15 +38,20 @@ class AuthNetworkService extends IAuthService {
         return response.payload!;
       } else {
         switch (response.statusCode) {
-          case 422:
-            throw UbProcessAbleEntityException(
-                message: response.payload?.message ??
-                    'UbProcessAbleEntityException');
           case 401:
+            throw UnAuthorizedException(
+              message:
+                  response.payload?.message ?? 'invalid username or password',
+            );
+          case 403:
             throw ForbiddenException(
               message:
                   response.payload?.message ?? 'invalid username or password',
             );
+          case 422:
+            throw UbProcessAbleEntityException(
+                message: response.payload?.message ??
+                    'UbProcessAbleEntityException');
           case 500:
             throw DefaultException(
               message: response.payload?.message ?? 'Server error',
