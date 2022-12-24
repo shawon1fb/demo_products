@@ -5,7 +5,7 @@ abstract class IHttpConnect {
     String url, {
     required T Function(dynamic)? decoder,
     Map<String, String>? headers,
-    Map<String, dynamic>? query,
+    Map<String, String>? query,
   });
 
   Future<Response<T>> post<T>(
@@ -14,12 +14,12 @@ abstract class IHttpConnect {
     dynamic body, {
     T Function(dynamic)? decoder,
     Map<String, String>? headers,
-    Map<String, dynamic>? query,
+    Map<String, String>? query,
   });
 
   Future<Response<T>> put<T>(
     String url,
-    Map<String, dynamic> body, {
+    dynamic body, {
     T Function(dynamic)? decoder,
     Map<String, String>? headers,
   });
@@ -35,5 +35,6 @@ abstract class IHttpConnect {
     String url, {
     required T Function(dynamic)? decoder,
     Map<String, String>? headers,
+    Map<String, String>? query,
   });
 }

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'domain/core/core/http_client/dia.http.client.dart';
 import 'infrastructure/navigation/routes.dart';
 import 'presentation/shared/no_internet_widget/no_internet_controller.dart';
 
@@ -15,6 +16,7 @@ class Initializer {
     try {
       await _initStorage();
       await _initGetConnect();
+      _dioClient();
 
       _initGlobalInternetConnection();
       _initScreenPreference();
@@ -26,6 +28,7 @@ class Initializer {
   static Future<void> testInit() async {
     try {
       await _initGetConnect();
+      _dioClient();
     } catch (err) {
       rethrow;
     }
@@ -75,6 +78,11 @@ class Initializer {
     );
 
     Get.put(connect);
+  }
+
+  static void _dioClient() {
+    AppHttpClient client = AppHttpClient();
+    Get.put(client);
   }
 
   static void _initGlobalInternetConnection() {

@@ -6,7 +6,7 @@ class Environments {
 }
 
 class ConfigEnvironments {
-  static const String _currentEnvironments = Environments.LOCAL;
+  static const String _currentEnvironments = Environments.DEV;
   static final List<AppConfig> _availableEnvironments = [
     AppConfig(
       env: Environments.LOCAL,

@@ -3,7 +3,7 @@ import 'package:get/get.dart' hide Response;
 
 import '../../domain/core/core/abstractions/http_connect.interface.dart';
 import '../../domain/core/core/abstractions/response.model.dart';
-import '../../domain/core/core/exceptions/no_internet.exception.dart';
+
 
 class Connect implements IHttpConnect {
   final GetConnect _connect;
@@ -22,13 +22,8 @@ class Connect implements IHttpConnect {
         url,
         decoder: decoder,
         headers: headers,
-        contentType: 'application/json',
         query: query,
-
       );
-      if (response.statusCode == null) {
-        throw NotInternetException(message: url);
-      }
 
       final obj = Response(
         statusCode: response.statusCode!,
@@ -36,7 +31,6 @@ class Connect implements IHttpConnect {
       );
       return obj;
     } catch (e) {
-      debugPrint(e.runtimeType.toString());
       rethrow;
     }
   }
@@ -47,24 +41,15 @@ class Connect implements IHttpConnect {
     dynamic body, {
     T Function(dynamic)? decoder,
     Map<String, String>? headers,
-    Map<String, dynamic>? query,
+    Map<String, String>? query,
   }) async {
     try {
-      final response = await _connect.post(
-        url,
-        body,
-        decoder: decoder,
-        headers: headers,
-        query: query,
-      );
+      final response =
+          await _connect.post(url, body, decoder: decoder, headers: headers, query: query);
 
       debugPrint(response.hasError.toString());
       response.printError();
       debugPrint(response.status.code.toString());
-      if (response.statusCode == null) {
-        throw NotInternetException();
-      }
-
       final obj = Response(
         statusCode: response.statusCode!,
         payload: response.body,
@@ -83,25 +68,17 @@ class Connect implements IHttpConnect {
     T Function(dynamic)? decoder,
     Map<String, String>? headers,
   }) async {
-    try {
-      final response = await _connect.patch(
-        url,
-        body,
-        decoder: decoder,
-        headers: headers,
-      );
-      final obj = Response(
-        statusCode: response.statusCode!,
-        payload: response.body,
-      );
-      if (response.statusCode == null) {
-        throw NotInternetException();
-      }
-
-      return obj;
-    } catch (e) {
-      rethrow;
-    }
+    final response = await _connect.patch(
+      url,
+      body,
+      decoder: decoder,
+      headers: headers,
+    );
+    final obj = Response(
+      statusCode: response.statusCode!,
+      payload: response.body,
+    );
+    return obj;
   }
 
   @override
@@ -109,52 +86,38 @@ class Connect implements IHttpConnect {
     String url, {
     T Function(dynamic)? decoder,
     Map<String, String>? headers,
+    Map<String, String>? query,
   }) async {
-    try {
-      final response = await _connect.delete(
-        url,
-        decoder: decoder,
-        headers: headers,
-      );
-      final obj = Response(
-        statusCode: response.statusCode!,
-        payload: response.body,
-      );
-      if (response.statusCode == null) {
-        throw NotInternetException();
-      }
-
-      return obj;
-    } catch (e) {
-      rethrow;
-    }
+    final response = await _connect.delete(
+      url,
+      decoder: decoder,
+      headers: headers,
+      query: query,
+    );
+    final obj = Response(
+      statusCode: response.statusCode!,
+      payload: response.body,
+    );
+    return obj;
   }
 
   @override
   Future<Response<T>> put<T>(
     String url,
-    Map<String, dynamic> body, {
+    dynamic body, {
     T Function(dynamic)? decoder,
     Map<String, String>? headers,
   }) async {
-    try {
-      final response = await _connect.put(
-        url,
-        body,
-        decoder: decoder,
-        headers: headers,
-      );
-      final obj = Response(
-        statusCode: response.statusCode!,
-        payload: response.body,
-      );
-      if (response.statusCode == null) {
-        throw NotInternetException();
-      }
-
-      return obj;
-    } catch (e) {
-      rethrow;
-    }
+    final response = await _connect.put(
+      url,
+      body,
+      decoder: decoder,
+      headers: headers,
+    );
+    final obj = Response(
+      statusCode: response.statusCode!,
+      payload: response.body,
+    );
+    return obj;
   }
 }

@@ -14,13 +14,13 @@ class AuthNetworkService extends IAuthService {
 
   AuthNetworkService({required IHttpConnect connect}) : _connect = connect;
 
-  String get _prefix => 'accounts';
+  String get _prefix => 'auth';
 
   @override
   Future<TokenResponse> signIn(LoginDto dto) async {
     try {
       final response = await _connect.post<TokenResponse>(
-        'token',
+        '$_prefix/login',
         dto.toString(),
         headers: {
           'Accept': 'application/json',
@@ -28,9 +28,9 @@ class AuthNetworkService extends IAuthService {
           // 'user-Agent': 'PostmanRuntime/7.29.2',
         },
         decoder: (value) {
-          // print(value);
+           print(value);
           return TokenResponse.fromJson(
-            value is String ? jsonDecode(value) : value as Map<String, dynamic>,
+            value is String ? ({'message': value}) : value as Map<String, dynamic>,
           );
         },
       );
