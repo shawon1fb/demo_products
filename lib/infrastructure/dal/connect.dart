@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart' hide Response;
 
-import '../../domain/core/core/abstractions/http_connect.interface.dart';
-import '../../domain/core/core/abstractions/response.model.dart';
+import '../../domain/core/abstractions/http_connect.interface.dart';
+import '../../domain/core/abstractions/response.model.dart';
 
 
 class Connect implements IHttpConnect {

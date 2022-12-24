@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import '../../domain/core/core/exceptions/unauthorized.exception.dart';
+import '../../domain/core/exceptions/unauthorized.exception.dart';
 import '../../infrastructure/navigation/routes.dart';
 import '../../values/values.dart';
 import '../shared/buttons/animated_button_widget.dart';

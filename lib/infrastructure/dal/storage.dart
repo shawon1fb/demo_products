@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:get_storage/get_storage.dart';
 
-import '../../domain/core/core/abstractions/storage.interface.dart';
+import '../../domain/core/abstractions/storage.interface.dart';
 
 class Storage implements IStorage {
   final GetStorage _storage;

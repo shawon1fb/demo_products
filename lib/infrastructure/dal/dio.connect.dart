@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart' as dio;
 import 'package:flutter/foundation.dart';
 
-import '../../domain/core/core/abstractions/http_connect.interface.dart';
-import '../../domain/core/core/abstractions/response.model.dart';
+import '../../domain/core/abstractions/http_connect.interface.dart';
+import '../../domain/core/abstractions/response.model.dart';
 
 
 class DioConnect extends IHttpConnect {

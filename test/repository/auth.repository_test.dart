@@ -1,4 +1,4 @@
-import 'package:demo_products/domain/core/core/exceptions/unauthorized.exception.dart';
+import 'package:demo_products/domain/core/exceptions/unauthorized.exception.dart';
 import 'package:demo_products/domain/repository/usecase/auth.reposirory.interface.dart';
 import 'package:demo_products/infrastructure/dal/services/auth/dto/login.dto.dart';
 import 'package:demo_products/infrastructure/navigation/bindings/domains/auth.repository.bindings.dart';

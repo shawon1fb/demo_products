@@ -1,5 +1,5 @@
-import '../../../../domain/core/core/abstractions/storage.interface.dart';
-import '../../../../domain/core/core/exceptions/not_found.exception.dart';
+import '../../../../domain/core/abstractions/storage.interface.dart';
+import '../../../../domain/core/exceptions/not_found.exception.dart';
 import '../usecase/app.data.services.interface.dart';
 
 class AppDataLocalStoreService extends IAppDataService {

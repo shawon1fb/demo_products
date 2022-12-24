@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
-import '../../../../domain/core/core/abstractions/http_connect.interface.dart';
-import '../../../../domain/core/core/http_client/dia.http.client.dart';
+import '../../../../domain/core/abstractions/http_connect.interface.dart';
+import '../../../../domain/core/http_client/dia.http.client.dart';
 import '../../../../domain/repository/auth/auth.repository.dart';
 import '../../../../domain/repository/usecase/auth.reposirory.interface.dart';
 import '../../../dal/connect.dart';
