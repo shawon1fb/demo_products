@@ -16,7 +16,7 @@ class Initializer {
     try {
       await _initStorage();
       await _initGetConnect();
-      _dioClient();
+      await _dioClient();
 
       _initGlobalInternetConnection();
       _initScreenPreference();
@@ -28,7 +28,7 @@ class Initializer {
   static Future<void> testInit() async {
     try {
       await _initGetConnect();
-      _dioClient();
+      await _dioClient();
     } catch (err) {
       rethrow;
     }
@@ -80,8 +80,9 @@ class Initializer {
     Get.put(connect);
   }
 
-  static void _dioClient() {
+  static Future<void> _dioClient() async {
     AppHttpClient client = AppHttpClient();
+    // await client.initCache();
     Get.put(client);
   }
 

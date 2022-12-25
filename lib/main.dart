@@ -11,6 +11,7 @@ import 'initializer.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   await Initializer.init();
   var initialRoute = await Routes.initialRoute;
 

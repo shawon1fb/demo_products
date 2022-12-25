@@ -1,9 +1,13 @@
+import 'dart:io';
+
 import 'package:dio/dio.dart';
 import 'package:dio_cache_interceptor/dio_cache_interceptor.dart';
+import 'package:dio_cache_interceptor_hive_store/dio_cache_interceptor_hive_store.dart';
 import 'package:dio_http_formatter/dio_http_formatter.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:path_provider/path_provider.dart';
 
 import '../../../../config.dart';
 import 'dio_flutter_transformer.dart';
@@ -27,16 +31,16 @@ class AppHttpClient extends GetLifeCycle {
       httpClient.interceptors.add(HttpFormatter());
     }
 
-    initCache();
+    //initCache();
     super.onInit();
   }
 
-  void initCache() {
+  Future<void> initCache() async {
     try {
-      // Directory tempDir = await getTemporaryDirectory();
+       // Directory tempDir = await getTemporaryDirectory();
       CacheStore store =
           MemCacheStore(maxSize: 10485760, maxEntrySize: 1048576);
-      // CacheStore store = HiveCacheStore(tempDir.path);
+       // CacheStore store = HiveCacheStore(tempDir.path);
       httpClient.interceptors
           .add(DioCacheInterceptor(options: CacheOptions(store: store)));
     } catch (e, t) {
