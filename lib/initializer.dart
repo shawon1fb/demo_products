@@ -1,15 +1,16 @@
 import 'dart:convert';
 
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+
+import 'config.dart';
 import 'domain/core/http_client/dia.http.client.dart';
 import 'infrastructure/navigation/routes.dart';
 import 'presentation/shared/no_internet_widget/no_internet_controller.dart';
-
-import 'config.dart';
 
 class Initializer {
   static Future<void> init() async {

@@ -1,9 +1,9 @@
-import 'package:dio/dio.dart' as dio;
 import 'package:flutter/foundation.dart';
+
+import 'package:dio/dio.dart' as dio;
 
 import '../../domain/core/abstractions/http_connect.interface.dart';
 import '../../domain/core/abstractions/response.model.dart';
-
 
 class DioConnect extends IHttpConnect {
   final dio.Dio _connect;
@@ -20,11 +20,14 @@ class DioConnect extends IHttpConnect {
         _connect.options.headers.addAll(headers);
       }
 
-      dio.Response response = await _connect.delete(url, queryParameters: query);
+      dio.Response response =
+          await _connect.delete(url, queryParameters: query);
 
       final obj = Response<T>(
         statusCode: response.statusCode!,
-        payload: decoder != null ? decoder.call(response.data) : (response.data as T),
+        payload: decoder != null
+            ? decoder.call(response.data)
+            : (response.data as T),
       );
 
       return obj;
@@ -54,7 +57,9 @@ class DioConnect extends IHttpConnect {
 
       final obj = Response<T>(
         statusCode: response.statusCode!,
-        payload: decoder != null ? decoder.call(response.toString()) : (response.data as T),
+        payload: decoder != null
+            ? decoder.call(response.toString())
+            : (response.data as T),
       );
 
       return obj;
@@ -90,7 +95,9 @@ class DioConnect extends IHttpConnect {
 
       final obj = Response<T>(
         statusCode: response.statusCode!,
-        payload: decoder != null ? decoder.call(response.data) : (response.data as T),
+        payload: decoder != null
+            ? decoder.call(response.data)
+            : (response.data as T),
       );
 
       return obj;
@@ -128,7 +135,9 @@ class DioConnect extends IHttpConnect {
 
       final obj = Response<T>(
         statusCode: response.statusCode!,
-        payload: decoder != null ? decoder.call(response.data) : (response.data as T),
+        payload: decoder != null
+            ? decoder.call(response.data)
+            : (response.data as T),
       );
 
       return obj;
@@ -166,7 +175,9 @@ class DioConnect extends IHttpConnect {
 
       final obj = Response<T>(
         statusCode: response.statusCode!,
-        payload: decoder != null ? decoder.call(response.data) : (response.data as T),
+        payload: decoder != null
+            ? decoder.call(response.data)
+            : (response.data as T),
       );
 
       return obj;

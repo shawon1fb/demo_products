@@ -27,9 +27,7 @@ class ProductNetworkService extends IProductService {
         },
         decoder: (value) {
           return AllProductsResponse.fromJson(
-            value is String
-                ? json.decode(value)
-                : value as List,
+            value is String ? json.decode(value) : value as List,
           );
         },
       );

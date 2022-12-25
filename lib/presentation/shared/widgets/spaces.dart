@@ -232,7 +232,6 @@ class SpaceW24 extends StatelessWidget {
   }
 }
 
-
 class SpaceW30 extends StatelessWidget {
   const SpaceW30({Key? key}) : super(key: key);
 
@@ -244,7 +243,6 @@ class SpaceW30 extends StatelessWidget {
   }
 }
 
-
 class SpaceW36 extends StatelessWidget {
   const SpaceW36({Key? key}) : super(key: key);
 
@@ -255,7 +253,6 @@ class SpaceW36 extends StatelessWidget {
     );
   }
 }
-
 
 class SpaceW40 extends StatelessWidget {
   const SpaceW40({Key? key}) : super(key: key);
@@ -289,4 +286,3 @@ class SpaceW60 extends StatelessWidget {
     );
   }
 }
-

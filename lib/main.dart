@@ -1,4 +1,3 @@
-import 'presentation/shared/image/cache_image_view_controller.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,6 +7,7 @@ import 'infrastructure/navigation/navigation.dart';
 import 'infrastructure/navigation/routes.dart';
 import 'infrastructure/theme/thems.dart';
 import 'initializer.dart';
+import 'presentation/shared/image/cache_image_view_controller.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

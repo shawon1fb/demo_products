@@ -546,5 +546,3 @@ class LoginDesign7ShapeClipper3 extends CustomClipper<Path> {
     return true;
   }
 }
-
-

@@ -1,5 +1,6 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:get/get.dart';
 
@@ -79,7 +80,8 @@ class CacheImageView extends StatelessWidget {
           fadeOutCurve: Curves.decelerate,
           fadeOutDuration: Duration(milliseconds: fadeOutDuration),
           fadeInDuration: Duration(milliseconds: fadeInDuration),
-          placeholderFadeInDuration: Duration(milliseconds: placeholderFadeInDuration),
+          placeholderFadeInDuration:
+              Duration(milliseconds: placeholderFadeInDuration),
           imageBuilder: (context, imageProvider) => Container(
             decoration: BoxDecoration(
               borderRadius: borderRadius,

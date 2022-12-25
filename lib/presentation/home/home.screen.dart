@@ -60,7 +60,6 @@ class HomeScreen extends GetView<HomeController> {
               return ProductListCard(
                 product: product,
                 onTap: () {
-
                   Get.toNamed(Routes.PRODUCT_DETAILS, parameters: {
                     'model': product.toString(),
                   });

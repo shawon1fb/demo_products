@@ -1,5 +1,3 @@
-
-
 import '../../../infrastructure/dal/services/usecase/app.data.services.interface.dart';
 import '../usecase/app.data.repository.interface.dart';
 

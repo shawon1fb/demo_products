@@ -87,7 +87,6 @@ class Borders {
     double width = Sizes.WIDTH_1,
     BorderStyle style = BorderStyle.solid,
   }) {
-
     return OutlineInputBorder(
       borderRadius: BorderRadius.all(Radius.circular(borderRadius)),
       borderSide: BorderSide(

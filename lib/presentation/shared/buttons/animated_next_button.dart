@@ -78,7 +78,6 @@ class AnimatedNextButton extends StatelessWidget {
   }
 }
 
-
 class NextButtonWidget extends StatefulWidget {
   const NextButtonWidget({Key? key}) : super(key: key);
 
@@ -92,4 +91,3 @@ class _NextButtonWidgetState extends State<NextButtonWidget> {
     return Container();
   }
 }
-
