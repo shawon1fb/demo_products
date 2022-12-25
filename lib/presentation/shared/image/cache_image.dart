@@ -18,7 +18,7 @@ class CacheImageView extends StatelessWidget {
     this.fadeOutDuration = 30,
     this.placeholderFadeInDuration = 30,
     this.backGroundColor = const Color(0xff315362), // const Color(0xffE72360),
-    this.boxShape = BoxShape.circle,
+    this.boxShape = BoxShape.rectangle,
     this.fit = BoxFit.cover,
     List<int> errorStatusCodes = const <int>[403],
   }) : super(key: key) {
