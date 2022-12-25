@@ -131,7 +131,7 @@ class DioConnect extends IHttpConnect {
             responseType: dio.ResponseType.plain,
           ));
 
-      print(response.data);
+     // print(response.data);
 
       final obj = Response<T>(
         statusCode: response.statusCode!,
@@ -142,11 +142,11 @@ class DioConnect extends IHttpConnect {
 
       return obj;
     } on dio.DioError catch (e) {
-      if (kDebugMode) {
-        print(e);
-        print('e.response?.data');
-        print(e.response?.data);
-      }
+      // if (kDebugMode) {
+      //   print(e);
+      //   print('e.response?.data');
+      //   print(e.response?.data);
+      // }
       final obj = Response<T>(
         statusCode: e.response?.statusCode ?? 500,
         payload: decoder != null

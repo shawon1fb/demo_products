@@ -29,7 +29,7 @@ class AppHttpClient extends GetLifeCycle {
   void onInit() {
     httpClient.transformer = FlutterTransformer();
     if (ConfigEnvironments.getEnvironments().url != Environments.PRODUCTION) {
-      httpClient.interceptors.add(HttpFormatter());
+      // httpClient.interceptors.add(HttpFormatter());
     }
 
     //initCache();
