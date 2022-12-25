@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
+import '../../domain/core/data_model/product.data.model.dart';
 import '../shared/image/cache_image.dart';
 import 'controllers/home.controller.dart';
 import 'controllers/products.controller.dart';
@@ -55,62 +56,87 @@ class HomeScreen extends GetView<HomeController> {
             itemCount: c.allProducts.length,
             itemBuilder: (context, i) {
               var product = c.allProducts[i];
-              return Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  children: [
-                    CacheImageView(
-                      image: product.image,
-                      child: SizedBox(
-                        width: Get.width,
-                        height: Get.width,
-                      ),
-                    ),
-                    Row(
-                      children: [
-                        /// title and price
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                    horizontal: 15, vertical: 10),
-                                child: Text(
-                                  product.title,
-                                  style: const TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 15,
-                                  vertical: 10,
-                                ),
-                                child: Text(
-                                  'price : ${product.price}\$',
-                                  style: const TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w300,
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        /// delete widget
-                      ],
-                    ),
-                    const Divider(),
-                  ],
-                ),
+              return ProductListCard(
+                product: product,
+                onTap: () {
+
+                },
               );
             },
           );
         },
+      ),
+    );
+  }
+}
+
+class ProductListCard extends StatelessWidget {
+  const ProductListCard({
+    Key? key,
+    required this.product,
+    required this.onTap,
+  }) : super(key: key);
+  final ProductDataModel product;
+
+  final Function() onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: onTap,
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            CacheImageView(
+              image: product.image,
+              child: SizedBox(
+                width: Get.width,
+                height: Get.width,
+              ),
+            ),
+            Row(
+              children: [
+                /// title and price
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 15, vertical: 10),
+                        child: Text(
+                          product.title,
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 15,
+                          vertical: 10,
+                        ),
+                        child: Text(
+                          'price : ${product.price}\$',
+                          style: const TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w300,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+
+                /// delete widget
+              ],
+            ),
+            const Divider(),
+          ],
+        ),
       ),
     );
   }

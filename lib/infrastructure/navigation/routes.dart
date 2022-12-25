@@ -17,4 +17,5 @@ class Routes {
 
   static const HOME = '/home';
   static const LOGIN = '/login';
+  static const PRODUCT_DETAILS = '/product-details';
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../config.dart';
+import '../../presentation/product_details/middleware/product_details.middleware.dart';
 import '../../presentation/screens.dart';
 import 'bindings/controllers/controllers_bindings.dart';
 import 'routes.dart';
@@ -37,6 +38,14 @@ class Nav {
       name: Routes.LOGIN,
       page: () => LoginScreen(),
       binding: LoginControllerBinding(),
+    ),
+    GetPage(
+      name: Routes.PRODUCT_DETAILS,
+      page: () => const ProductDetailsScreen(),
+      middlewares: [
+        ProductDetailsMiddleWare(),
+      ],
+      binding: ProductDetailsControllerBinding(),
     ),
   ];
 }
