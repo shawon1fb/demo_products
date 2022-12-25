@@ -8,6 +8,7 @@ import '../shared/image/cache_image.dart';
 import 'controllers/home.controller.dart';
 import 'controllers/products.controller.dart';
 import 'controllers/profile.controller.dart';
+import 'enums/home.enums.dart';
 
 class HomeScreen extends GetView<HomeController> {
   const HomeScreen({Key? key}) : super(key: key);
@@ -45,7 +46,7 @@ class HomeScreen extends GetView<HomeController> {
         centerTitle: true,
       ),
       body: GetBuilder<ProductsController>(
-        id: 'product_list',
+        id: Home.product_list,
         builder: (c) {
           if (c.isLoading == true) {
             return const Center(child: Text('Loading'));

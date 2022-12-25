@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import '../../../domain/core/data_model/product.data.model.dart';
 import '../../../domain/core/pagination/pagination_model.dart';
 import '../../../domain/repository/usecase/product.repository.interface.dart';
+import '../enums/home.enums.dart';
 
 class ProductsController extends GetxController {
   final IProductRepository _productRepository;
@@ -39,7 +40,7 @@ class ProductsController extends GetxController {
       }
     } finally {
       isLoading = false;
-      update(['product_list']);
+      update([Home.product_list]);
     }
   }
 
