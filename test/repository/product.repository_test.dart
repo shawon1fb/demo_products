@@ -8,7 +8,6 @@ import 'package:flutter_test/flutter_test.dart';
 void main() {
   test('get all products', () async {
     await Initializer.testInit();
-
     IProductRepository repository = ProductRepositoryBindings().repository;
 
     PaginationModel<ProductDataModel> res = await repository.getAllProduct();

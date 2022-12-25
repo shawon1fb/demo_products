@@ -1,4 +1,4 @@
-import 'package:demo_products/presentation/shared/image/cache_image_view_controller.dart';
+import 'presentation/shared/image/cache_image_view_controller.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
