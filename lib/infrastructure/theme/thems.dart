@@ -15,6 +15,9 @@ class LoginDesign5Theme {
     return ThemeData(
       textTheme: _textTheme,
       iconTheme: const IconThemeData(color: AppColors.white),
+      appBarTheme: const AppBarTheme(
+        iconTheme: IconThemeData(color: AppColors.white),
+      ),
       canvasColor: colorScheme.background,
       scaffoldBackgroundColor: colorScheme.background,
       highlightColor: Colors.transparent,

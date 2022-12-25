@@ -26,6 +26,18 @@ class ProductDataModel {
     return false;
   }
 
+  factory ProductDataModel.fromJson(Map<String, dynamic> j) => ProductDataModel(
+        id: j['id'],
+        title: j['title'],
+        price: j['price'],
+        description: j['description'],
+        category: j['category'],
+        image: j['image'],
+      );
+
+  factory ProductDataModel.fromString(String s) =>
+      ProductDataModel.fromJson(const JsonDecoder().convert(s));
+
   Map<String, dynamic> toJson() => {
         'id': id,
         'title': title,

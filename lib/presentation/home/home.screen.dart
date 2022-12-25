@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../domain/core/data_model/product.data.model.dart';
+import '../../infrastructure/navigation/routes.dart';
 import '../shared/image/cache_image.dart';
 import 'controllers/home.controller.dart';
 import 'controllers/products.controller.dart';
@@ -60,6 +61,9 @@ class HomeScreen extends GetView<HomeController> {
                 product: product,
                 onTap: () {
 
+                  Get.toNamed(Routes.PRODUCT_DETAILS, parameters: {
+                    'model': product.toString(),
+                  });
                 },
               );
             },
