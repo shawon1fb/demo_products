@@ -39,7 +39,7 @@ class ProductsController extends GetxController {
       }
     } finally {
       isLoading = false;
-      update();
+      update(['product_list']);
     }
   }
 

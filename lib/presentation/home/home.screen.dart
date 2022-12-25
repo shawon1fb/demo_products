@@ -45,6 +45,7 @@ class HomeScreen extends GetView<HomeController> {
         centerTitle: true,
       ),
       body: GetBuilder<ProductsController>(
+        id: 'product_list',
         builder: (c) {
           if (c.isLoading == true) {
             return const Center(child: Text('Loading'));
